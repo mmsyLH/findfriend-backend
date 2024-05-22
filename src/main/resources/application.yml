@@ -1,0 +1,59 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+    session:
+      cookie:
+        domain: localhost
+        http-only: false
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_find_friend?serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  redis:
+    host: localhost
+    port: 6379
+    password: root
+  jackson:
+    time-zone: GMT+8
+    date-format: java.text.SimpleDateFormat
+  mail:
+    host: host
+    username: username
+    password: password
+  session:
+    store-type: redis
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: on
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      logic-delete-field: isDelete
+      id-type: auto
+knife4j:
+  enable: true
+  openapi:
+    title: 系统接口文档
+    description: "校园伙伴匹配系统"
+    email: 1072344372@qq.com
+    version: v2.0.0
+    concat: OchiaMalu
+    group:
+      super:
+        group-name: super
+        api-rule: package
+        api-rule-resources:
+          - asia.lhweb.findfriend
+super:
+  img: /img/
+  enable-bloom-filter: false
+  enable-cache: false
+  use-local-storage: true
